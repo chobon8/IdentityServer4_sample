@@ -42,6 +42,8 @@ namespace MVCClient
                 options.ResponseType = "code";
 
                 options.SaveTokens = true;
+
+                options.Scope.Add("api1");
             });
 
             services.AddControllersWithViews();

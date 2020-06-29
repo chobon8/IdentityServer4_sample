@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 
-namespace Api
+namespace Api.Controllers
 {
     [Route("identity")]
-    /*[Authorize("ApiScope2")]*/
+    [Authorize]
     public class IdentityController : ControllerBase
     {
         [HttpGet]

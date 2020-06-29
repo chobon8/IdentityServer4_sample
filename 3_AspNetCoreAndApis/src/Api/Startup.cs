@@ -69,7 +69,7 @@ namespace Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers()
-                    .RequireAuthorization("ApiScope2"); ;
+                    .RequireAuthorization("ApiScope"); ;
             });
         }
     }
