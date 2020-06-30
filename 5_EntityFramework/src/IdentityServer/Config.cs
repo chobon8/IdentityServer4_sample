@@ -5,6 +5,12 @@
 using IdentityServer4.Models;
 using System.Collections.Generic;
 using IdentityServer4;
+using IdentityServer4.EntityFramework.Entities;
+using ApiResource = IdentityServer4.Models.ApiResource;
+using ApiScope = IdentityServer4.Models.ApiScope;
+using Client = IdentityServer4.Models.Client;
+using IdentityResource = IdentityServer4.Models.IdentityResource;
+using Secret = IdentityServer4.Models.Secret;
 
 namespace IdentityServer
 {
