@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  api:
+    image: ${DOCKER_REGISTRY:-quickstart}/api
+    build:
+      context: .
+      dockerfile: src/Api/Dockerfile
+
+  client:
+    image: ${DOCKER_REGISTRY:-quickstart}/client
+    build:
+      context: .
+      dockerfile: src/Client/Dockerfile
+
+
+  identityserveraspnetidentity:
+    image: ${DOCKER_REGISTRY:-quickstart}/identityserveraspnetidentity
+    build:
+      context: .
+      dockerfile: src/IdentityServerAspNetIdentity/Dockerfile
+
+
+  javascriptclient:
+    image: ${DOCKER_REGISTRY:-quickstart}/javascriptclient
+    build:
+      context: .
+      dockerfile: src/JavaScriptClient/Dockerfile
+
+
+  mvcclient:
+    image: ${DOCKER_REGISTRY:-quickstart}/mvcclient
+    build:
+      context: .
+      dockerfile: src/MVCClient/Dockerfile
+
