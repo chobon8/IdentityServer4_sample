@@ -35,8 +35,10 @@ namespace MVCClient
             .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
             {
-                options.Authority = "https://localhost:5001";
-                
+                options.Authority = "http://docker.for.win.localhost:5001";
+
+                options.RequireHttpsMetadata = false;
+
                 options.ClientId = "mvc";
                 options.ClientSecret = "secret";
                 options.ResponseType = "code";
@@ -44,6 +46,15 @@ namespace MVCClient
                 options.SaveTokens = true;
 
                 options.Scope.Add("api1");
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ApiScope", policy =>
+                {
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireClaim("scope", "api1");
+                });
             });
 
             services.AddControllersWithViews();
@@ -62,7 +73,7 @@ namespace MVCClient
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();

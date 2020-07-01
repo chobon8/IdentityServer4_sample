@@ -1,17 +1,15 @@
 version: '3.4'
 
 services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest 
+
+
   api:
     image: ${DOCKER_REGISTRY:-quickstart}/api
     build:
       context: .
       dockerfile: src/Api/Dockerfile
-
-  client:
-    image: ${DOCKER_REGISTRY:-quickstart}/client
-    build:
-      context: .
-      dockerfile: src/Client/Dockerfile
 
 
   identityserveraspnetidentity:

@@ -46,10 +46,10 @@ namespace IdentityServerAspNetIdentity
                     AllowedGrantTypes = GrantTypes.Code,
 
                     // where to redirect to after login
-                    RedirectUris = { "https://localhost:5002/signin-oidc" },
+                    RedirectUris = { "http://docker.for.win.localhost:5002/signin-oidc" },
 
                     // where to redirect to after logout
-                    PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
+                    PostLogoutRedirectUris = { "http://docker.for.win.localhost:5002/signout-callback-oidc" },
 
                     AllowedScopes = new List<string>
                     {
@@ -58,6 +58,25 @@ namespace IdentityServerAspNetIdentity
                         "api1"
                     }
                 },
+                // JavaScript Client
+                new Client
+                {
+                    ClientId = "js",
+                    ClientName = "JavaScript Client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequireClientSecret = false,
+
+                    RedirectUris =           { "http://docker.for.win.localhost:5003/callback.html" },
+                    PostLogoutRedirectUris = { "http://docker.for.win.localhost:5003/index.html" },
+                    AllowedCorsOrigins =     { "http://docker.for.win.localhost:5003" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    }
+                }
             };
     }
 }

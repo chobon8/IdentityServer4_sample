@@ -42,7 +42,7 @@ namespace MVCClient.Controllers
 
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
-            var content = await client.GetStringAsync("https://localhost:6001/identity");
+            var content = await client.GetStringAsync("http://docker.for.win.localhost:6001/identity");
 
             ViewBag.Json = JArray.Parse(content).ToString();
 

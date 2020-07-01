@@ -5,8 +5,8 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>6da14cbf-fac2-4f24-89e0-1aad34641413</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
-    <DockerServiceName>api</DockerServiceName>
+    <DockerServiceUrl>http://docker.for.win.localhost:5003</DockerServiceUrl>
+    <DockerServiceName>javascriptclient</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

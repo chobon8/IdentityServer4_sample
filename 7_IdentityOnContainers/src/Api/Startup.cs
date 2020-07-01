@@ -26,8 +26,10 @@ namespace Api
                 {
                     options.IncludeErrorDetails = true; // Default: true
 
-                    options.Authority = "https://localhost:5001";
-            
+                    options.RequireHttpsMetadata = false;
+
+                    options.Authority = "http://docker.for.win.localhost:5001";
+
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         // Let "sub" assign to User.Identity.Name
@@ -56,7 +58,7 @@ namespace Api
             {
                 options.AddPolicy("default", policy =>
                 {
-                    policy.WithOrigins("https://localhost:5003")
+                    policy.WithOrigins("http://docker.for.win.localhost:5003")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
