@@ -12,7 +12,7 @@ namespace Client
         {
             var client = new HttpClient();
             var disco = await client.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest{
-                Address = "http://localhost:5001",
+                Address = "http://docker.for.win.localhost:5001",
                 Policy = new DiscoveryPolicy
                 {
                     RequireHttps = false
@@ -44,7 +44,7 @@ namespace Client
             var apiClient = new HttpClient();
             apiClient.SetBearerToken(tokenResponse.AccessToken);
 
-            var response = await apiClient.GetAsync("http://localhost:6001/identity");
+            var response = await apiClient.GetAsync("http://docker.for.win.localhost:6001/identity");
             if (!response.IsSuccessStatusCode)
             {
                 Console.WriteLine(response.StatusCode);
